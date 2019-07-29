@@ -15,11 +15,11 @@ import { Workspace } from './workspace';
 
 @Injectable()
 export class OrganisationService {
-  private urlApiOrganisation: string = environment.apiDataworkBench + '/iati-publishers';
-  private urlApiWorkspaces: string = environment.apiDataworkBench + '/workspaces';
-  private urlApiVersions: string = environment.apiDataworkBench + '/versions';
-  private urlApiIatiDataset: string = environment.apiDataworkBench + '/iati-datasets';
-  private urlApiIatiFile: string = environment.apiDataworkBench + '/iati-files';
+  private urlApiOrganisation: string = window.__env.apiDataworkBench + '/iati-publishers';
+  private urlApiWorkspaces: string = window.__env.apiDataworkBench + '/workspaces';
+  private urlApiVersions: string = window.__env.apiDataworkBench + '/versions';
+  private urlApiIatiDataset: string = window.__env.apiDataworkBench + '/iati-datasets';
+  private urlApiIatiFile: string = window.__env.apiDataworkBench + '/iati-files';
 
   constructor(private http: HttpClient,
               private logger: LogService) { }
@@ -87,7 +87,7 @@ getIatiDataset(md5: string): Observable<IatiDataset[]> {
 }
 
 getIatiFile(md5: string): Observable<any> {
-  const container = 'dataworkbench-json' + environment.bucketnameSuffix;
+  const container = 'dataworkbench-json' + window.__env.bucketnameSuffix;
   const url: string = this.urlApiIatiFile + '/' + container + '/download/' + md5 + '.json';
   //   /iati-files/{container}/download/{file}
   this.log(url);
