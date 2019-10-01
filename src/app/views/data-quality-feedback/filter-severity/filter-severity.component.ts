@@ -9,6 +9,7 @@ import { Severity } from '../shared/severity';
 })
 export class FilterSeverityComponent implements OnInit {
   @Input() severities: Severity[] = [];
+  @Input() messagesCount: number = null;
   @Output() selectedChanged = new EventEmitter<string>();
 
   constructor() { }
@@ -17,7 +18,7 @@ export class FilterSeverityComponent implements OnInit {
   }
 
   allSelected(): boolean {
-     return this.severities.every(x => x.show === true);
+    return this.severities.every(x => x.show === true);
   }
 
   selectionChanged() {

@@ -37,6 +37,7 @@ export class MainComponent implements OnInit, OnDestroy {
   severities: Severity[] = [];
   sources: Source[] = [];
   categories: Category[] = [];
+  messageCount = 0;
   public dqfs: Dqfs;
   public filetype = '';
   private loaderSubscription: Subscription;
@@ -349,7 +350,8 @@ export class MainComponent implements OnInit, OnDestroy {
       act.feedback.forEach(fb => {
         fb.messages.forEach(mes => {
           if (mes.rulesets.some(r => r.severity === type)) {
-            count += mes.context.length;
+            count = act.feedback.length;
+            this.messageCount += mes.context.length;
           }
         });
       });
@@ -358,7 +360,8 @@ export class MainComponent implements OnInit, OnDestroy {
     this.companyFeedbackData.forEach(fb => {
       fb.messages.forEach(mes => {
         if (mes.rulesets.some(r => r.severity === type)) {
-          count += mes.context.length;
+          count += this.companyFeedbackData.length;
+          this.messageCount += mes.context.length;
         }
       });
     });
