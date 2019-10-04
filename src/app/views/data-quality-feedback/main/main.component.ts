@@ -350,7 +350,7 @@ export class MainComponent implements OnInit, OnDestroy {
       act.feedback.forEach(fb => {
         fb.messages.forEach(mes => {
           if (mes.rulesets.some(r => r.severity === type)) {
-            count = act.feedback.length;
+            count += mes.context.length;
             this.messageCount += mes.context.length;
           }
         });
@@ -360,7 +360,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.companyFeedbackData.forEach(fb => {
       fb.messages.forEach(mes => {
         if (mes.rulesets.some(r => r.severity === type)) {
-          count += this.companyFeedbackData.length;
+          count += mes.context.length;
           this.messageCount += mes.context.length;
         }
       });

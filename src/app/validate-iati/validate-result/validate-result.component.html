@@ -20,7 +20,10 @@
           Uploaded
         </div>
         <div class="col-12 col-md d-none d-md-block">
-          Report status
+          Report generated
+        </div>
+        <div class="col-12 col-md d-none d-md-block">
+          Validation report available
         </div>
       </div>
 
@@ -32,6 +35,9 @@
           </div>
           <div class="col-12 col-md">
             {{ iatiDatasetData.uploaded | date:'yyyy-MM-dd HH:mm (z)' }}
+          </div>
+          <div class="col-12 col-md">
+            {{ (iatiDatasetData ? iatiDatasetData['json-updated'] : '') | date:'yyyy-MM-dd HH:mm (z)' }}
           </div>
           <div class="col-12 col-md">
             <span *ngIf="jsonUpdated(iatiDatasetData); else elseBlock" > <button type="button" class="btn btn-link dqf-button">{{ reportType(iatiDatasetData) }}</button> </span>
