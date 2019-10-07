@@ -102,7 +102,7 @@ export class ValidateResultComponent implements OnInit, OnDestroy {
   reportType(dataset): string {
     if (this.jsonUpdated(dataset)) {
       // Routerlink naar de view pagina
-      return 'Validation finished (click to view)';
+      return 'File Validation report (click to view)';
     } else {
       return '-';
     }
