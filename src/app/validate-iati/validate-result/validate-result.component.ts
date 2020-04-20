@@ -77,12 +77,12 @@ export class ValidateResultComponent implements OnDestroy {
     if (!this.iatiDatasetDatas) {
       return false;
     } else {
-      return this.iatiDatasetDatas.every(iatiDatasetData => this.jsonUpdated(iatiDatasetData));
+      return this.jsonUpdated(this.iatiDatasetDatas);
     }
 
   }
 
-  jsonUpdated(inDataset: IatiTestdataset): boolean {
+  jsonUpdated(inDataset: IatiTestdataset[]): boolean {
     if (inDataset['json-updated']) {
       return true;
     } else {
@@ -100,7 +100,7 @@ export class ValidateResultComponent implements OnDestroy {
 
   rowClick(dataset: IatiTestdataset, id: string) {
     console.log('click: ', id);
-    if (this.jsonUpdated(dataset)) {
+    if (this.jsonUpdated([dataset])) {
       const navigationExtras: NavigationExtras = {
         queryParams: {
           'isTestfiles': true,
