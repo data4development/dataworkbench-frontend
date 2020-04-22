@@ -1,4 +1,4 @@
-﻿import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -25,7 +25,7 @@ export abstract class LogPublisher {
 export class LogConsole extends LogPublisher {
   log(entry: LogEntry): Observable<boolean> {
     // Log to console
-    console.log(entry.buildLogString());
+    // console.log(entry.buildLogString());
 
     return Observable.of(true);
   }

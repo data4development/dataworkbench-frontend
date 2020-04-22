@@ -53,7 +53,7 @@ export class ValidateResultComponent implements OnDestroy {
       this.loadData();
       if (this.allDataHasJsonUpdated()) {
         logger.debug('unsubscribe');
-        this.subscribeTimer.unsubscribe();
+        // this.subscribeTimer.unsubscribe();
       }
     });
   }
