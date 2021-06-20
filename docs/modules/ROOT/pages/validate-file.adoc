@@ -1,12 +1,11 @@
----
-title: Validate file upload
----
+= Validate file upload
 
-File upload, [see also API doc](https://api-doc.dataworkbench.io/?version=latest#217f2006-7df9-4e5a-8ffe-b4851a737f93)
+File upload, https://api-doc.dataworkbench.io/?version=latest#217f2006-7df9-4e5a-8ffe-b4851a737f93[see also API doc]
 
-## Front end component
+== Front end component
 
-```mermaid
+[mermaid]
+....
 sequenceDiagram
 	participant FE as front-end
 	participant API
@@ -56,15 +55,16 @@ sequenceDiagram
 	Storage -->>- API: file
 	API -->>- FE: file
 	deactivate FE
-```
+....
 
-## Back end component
+== Back end component
 
 Runs multiple instances of a loop that asks for a file without validation results, then runs the validation.
 
 The "store results" portion in the diagram is presented as a single action here, but consists of separate steps for each type of feedback file (JSON, SVRL).
 
-```mermaid
+[mermaid]
+....
 sequenceDiagram
 	participant V as Validator test files
 	participant API
@@ -98,5 +98,4 @@ sequenceDiagram
 		end
 		deactivate V
 	end
-```
-
+....

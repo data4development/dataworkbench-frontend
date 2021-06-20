@@ -1,0 +1,5 @@
+name: frontend
+title: Frontend
+version: ~
+nav:
+- modules/ROOT/nav.adoc
